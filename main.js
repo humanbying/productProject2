@@ -22,11 +22,12 @@ const TableStuff = React.createClass({
       <div>
       <form onSubmit={this.onSubmit}>
         <h1>Name</h1>
-        <input id = "name" type="text" ref="name"/>
+        <input id = "name" type="text" ref="name"/><button>edit</button><button>X</button>
         <h1>Description</h1>
-        <input id = "description" type="text" ref="description"/>
+        <input id = "description" type="text" ref="description"/><button>edit</button><button>X</button>
         <h1>Price</h1>
-        <input id = "price" type="number" ref="price"/>
+        <input id = "price" type="number" ref="price"/><button>edit</button><button>X</button>
+        <br/>
         <button type="submit">Submit</button>
         </form>
         <h3><span>Total items:</span>
