@@ -4,29 +4,44 @@ const TableStuff = React.createClass({
     return{
       name: '',
       description: '',
-      price: ''
+      price: '',
+      items: []
     }
+  },
+  addItem: function(text){
+    var newItem = {
+      name: name,
+      description: description,
+      price: price,
+      items: this.state.item.length + 1,
+    }
+    this.setState({items: this.state.items.concat(newItem)});
   },
   render: function() {
     return (
       <div>
       <form onSubmit={this.onSubmit}>
         <h1>Name</h1>
-        <input id = "name" type="text" ref="text"/>
+        <input id = "name" type="text" ref="name"/>
         <h1>Description</h1>
-        <input id = "description" type="text" ref="text"/>
+        <input id = "description" type="text" ref="description"/>
         <h1>Price</h1>
-        <input id = "price" type="text" ref="text"/>
-        <button>Submit</button>
+        <input id = "price" type="number" ref="price"/>
+        <button type="submit">Submit</button>
         </form>
+        <h3><span>Total items:</span>
+        <br/>
+        <span>Total Price:</span></h3>
       </div>
     )
   },
   onSubmit: function(e){
     e.preventDefault();
-    var text = this.refs.text.value;
+    var name = this.refs.name.value;
+    var description = this.refs.description.value;
+    var price = this.refs.price.value;
 
-    if(!text){
+    if(!name){
       alert('enter an item');
       return;
     }
